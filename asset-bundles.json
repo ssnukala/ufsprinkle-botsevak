@@ -1,0 +1,16 @@
+{
+    "bundle": {
+        "js/pages/botsevakutil": {
+            "scripts": [
+                "local/js/pages/botsevak-utilities.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "scripts": "plain"
+                    }
+                }
+            }
+        }
+    }
+}
