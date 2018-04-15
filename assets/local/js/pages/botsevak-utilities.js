@@ -8,7 +8,7 @@
  */
   var botmanWidget = {
     frameEndpoint: '/chat',
-    chatServer:'/',
+    chatServer:'/chat',
     title:'BotSevak - BotMan for UF'
   };
 

@@ -8,3 +8,4 @@
 
 
 $app->get('/chat','UserFrosting\Sprinkle\BotSevak\Controller\BotSevakController:pageChat');
+$app->post('/chat','UserFrosting\Sprinkle\BotSevak\Controller\BotSevakController:chatResponse');
