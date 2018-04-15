@@ -1,17 +1,17 @@
 <!doctype html>
 <html>
-<head>
-    <title>BotMan Widget</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
-// Srinivas : Adding the CSRF to the meta tag in the iFrame this is not working as intended
-    <meta  name="{{site.csrf.keys.name}}" content="{{site.csrf.name}}">
-    <meta  name="{{site.csrf.keys.value}}" content="{{site.csrf.value}}">
-</head>
-<body>
-  <script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>
-// Srinivas : Adding the CSRF as input fields hoping the chat POST picks it up, this is not working as intended
-  <input type="hidden" name="{{site.csrf.keys.name}}" value="{{site.csrf.name}}">
-  <input type="hidden" name="{{site.csrf.keys.value}}" value="{{site.csrf.value}}">
-</body>
+    <head>
+        <title>BotMan Widget</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
+        // Srinivas : Adding the CSRF to the meta tag in the iFrame this is not working as intended
+        <meta name="{{site.csrf.keys.name}}" content="{{site.csrf.name}}">
+        <meta name="{{site.csrf.keys.value}}" content="{{site.csrf.value}}">
+    </head>
+    <body>
+        <script id="botmanWidget" src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/chat.js'></script>
+        // Srinivas : Adding the CSRF as input fields hoping the chat POST picks it up, this is not working as intended
+        <input type="hidden" name="{{site.csrf.keys.name}}" value="{{site.csrf.name}}">
+        <input type="hidden" name="{{site.csrf.keys.value}}" value="{{site.csrf.value}}">
+    </body>
 </html>
