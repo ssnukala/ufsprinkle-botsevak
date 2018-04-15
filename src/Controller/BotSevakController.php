@@ -20,10 +20,17 @@ use BotMan\BotMan\Drivers\DriverManager;
 class BotSevakController extends SimpleController {
 
 protected $botman;
-protected $config = ['web' => [ 'matchingData' => ['driver' => 'web'] ] ];
+protected $config;
 
   public function setupBotMan(){
 
+    $this->config = ['web' => [
+       'matchingData' => ['driver' => 'web',
+       "custom_param"=>"Custom Value"
+       ]
+       ]
+     ];
+//     Debug::debug("line 31 config is : ",$this->config);
     // Load the driver(s) you want to use
     DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
 //      DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
