@@ -1,7 +1,7 @@
 <?php
 
 /**
- * BotSevak controller : implements https://botman.io/2.0/web-widget : custom web widget functionality
+ * BotSevak controller :
  *
  * @link      https://github.com/ssnukala/ufsprinkle-botsevak
  * @copyright Copyright (c) 2013-2016 Srinivas Nukala
