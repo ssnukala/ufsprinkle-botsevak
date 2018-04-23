@@ -21,80 +21,32 @@ use UserFrosting\Fortress\RequestSchema;
 use UserFrosting\Fortress\ServerSideValidator;
 use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
 use UserFrosting\Sprinkle\Core\Facades\Debug;
-use BotMan\BotMan\BotMan;
-use BotMan\BotMan\BotManFactory;
-use BotMan\BotMan\Drivers\DriverManager;
 
 class BotSevakController extends SimpleController
 {
     protected $botman;
 
     protected $config;
-    /**
-     * [setupBotMan setup the BotMan widget]
-     * @return [type] [void]
-     */
-    public function setupBotMan()
-    {
-        $this->config = ['web' => [
-            'matchingData' => ['driver' => 'web']
-        ]];
-//     Debug::debug("line 31 config is : ",$this->config);
-        // Load the driver(s) you want to use
-        DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
-
-        // Create an instance
-        $this->botman = BotManFactory::create($this->config);
-        // Start listening
-        $this->botman->listen();
-    }
 
     /**
-     * [botmanResponses description]
-     * @return [type] [description]
-     */
-    public function botmanResponses()
-    {
-        //Debug::debug("Line 169 ", $params);
-        Debug::debug("Line 58 starting to respond", []);
-        // Load the driver(s) you want to use
-        $this->botman->hears('hello', function (BotMan $bot) {
-            $bot->reply('Hello yourself.');
-        });
-
-        $this->botman->hears('call me {name}', function ($bot, $name) {
-            $bot->reply('Your name is: '.$name);
-        });
-
-        $this->botman->hears('I want ([0-9]+)', function ($bot, $number) {
-            $bot->reply('You will get: '.$number);
-        });
-
-        $this->botman->fallback(function ($bot) {
-            $bot->reply('Sorry, I did not understand these commands. Here is a list of commands I understand: ...');
-        });
-        // Start listening
-        $this->botman->listen();
-    }
-
-    /**
-     * [pageChat Opens chat box]
+     * [pageBotSevak Opens chat box]
      * @param  [type] $request  request object
      * @param  [type] $response response object
      * @param  [type] $args     input arguements
      * @return [void]           void
      */
-    public function pageChat($request, $response, $args)
+    public function pageBotSevak($request, $response, $args)
     {
-        $this->setupBotMan();
+//        $this->setupBotMan();
         // Create BotMan instance
-        return $this->ci->view->render($response, "pages/botman/botsevak-iframe.html.twig", [
+        return $this->ci->view->render($response, "pages/botsevak.html.twig", [
             'info' => [
                 'environment' => $this->ci->environment,
                 'path' => [
                     'project' => \UserFrosting\ROOT_DIR
                 ]
-            ]
+            ],
+            'form' => ['method'=>'post','action'=>'chat']
         ]);
     }
 
@@ -115,7 +67,7 @@ class BotSevakController extends SimpleController
         $ms = $this->ci->alerts;
 
         // Load the request schema
-        $schema = new RequestSchema('schema://botman/botsevak.yaml');
+        $schema = new RequestSchema('schema://botsevak.yaml');
 
         // Whitelist and set parameter defaults
         $transformer = new RequestDataTransformer($schema);
@@ -130,32 +82,17 @@ class BotSevakController extends SimpleController
             $error = true;
         }
 
-        $this->setupBotMan();
         Debug::debug("Line 134 Calling the response the data is ", $data);
 
-        $this->botmanResponses();
+        $this->botSevakResponses();
 //        return $response->withJson($result, 200, JSON_PRETTY_PRINT);
     }
 
     /**
-     * [pageBotSevak Opens chat box]
-     * @param  [type] $request  request object
-     * @param  [type] $response response object
-     * @param  [type] $args     input arguements
-     * @return [void]           void
+     * [botSevakResponses description]
+     * @return [type] [description]
      */
-    public function pageBotSevak($request, $response, $args)
+    public function botSevakResponses($data)
     {
-        $this->setupBotMan();
-        // Create BotMan instance
-        return $this->ci->view->render($response, "pages/ssnukala/botsevak.html.twig", [
-            'info' => [
-                'environment' => $this->ci->environment,
-                'path' => [
-                    'project' => \UserFrosting\ROOT_DIR
-                ]
-            ],
-            'form' => ['method'=>'post','action'=>'chat']
-        ]);
     }
 }
