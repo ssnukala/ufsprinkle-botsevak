@@ -15,7 +15,8 @@
     "require": {
         "php": ">=5.6",
         "botman/botman":"2.0",
-        "botman/driver-web":"*"
+        "botman/driver-web":"*",
+        "google/cloud":"*"
     },
     "autoload": {
         "psr-4": {

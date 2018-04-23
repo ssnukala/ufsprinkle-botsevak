@@ -11,6 +11,19 @@
                     }
                 }
             }
+        },
+        "css/botsevak": {
+            "styles": [
+                "local/css/botsevak.css"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                        "styles": "plain"
+                    }
+                }
+            }
         }
+
     }
 }

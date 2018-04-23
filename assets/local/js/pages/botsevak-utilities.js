@@ -17,5 +17,14 @@ var botmanWidget = {
     chatServer: '/chat?' + site.csrf.keys.name + '=' + site.csrf.name + '&' + site.csrf.keys.value + '=' + site.csrf.value,
     title: 'BotSevak - BotMan for UF'
 };
+$("#botSevakForm-main").ufForm({
+    validators: {},
+    msgTarget: $("#alerts-page")
+}).on("submitSuccess.ufForm", function() {
+    console.log("Got back from the chat call");
+    // Reload the page on success
+//    window.location.reload();
+});
+
 
 //    console.log(jQuery('.dataTable').data());

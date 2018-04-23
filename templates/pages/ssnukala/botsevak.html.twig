@@ -1,0 +1,25 @@
+{% extends "pages/abstract/default.html.twig" %}
+{% block stylesheets_page_group %}
+    <!-- Page-group-specific CSS asset bundle -->
+    {{ assets.css('css/botsevak') | raw }}
+
+{% endblock %}
+
+{% set page_active = "home" %}
+
+{# Overrides blocks in head of base template #}
+{% block page_title %}{{translate("HOME")}}
+{% endblock %}
+
+{% block page_description %}{{translate("WELCOME_TO", {'title': site.title})}}
+{% endblock %}
+
+{% block body_matter %}
+    {% include "forms/ssnukala/chat.html.twig" %}
+
+{% endblock %}
+
+{% block scripts_page %}
+    {{ assets.js('js/pages/botsevakutil') | raw }}
+
+{% endblock %}

@@ -6,6 +6,7 @@
  * @copyright Copyright (c) 2013-2016 Srinivas Nukala
  */
 
+ $app->get('/botsevak', 'UserFrosting\Sprinkle\BotSevak\Controller\BotSevakController:pageBotSevak');
 
 $app->get('/chat', 'UserFrosting\Sprinkle\BotSevak\Controller\BotSevakController:pageChat');
 $app->post('/chat', 'UserFrosting\Sprinkle\BotSevak\Controller\BotSevakController:chatResponse');

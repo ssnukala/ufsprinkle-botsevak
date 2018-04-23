@@ -1,0 +1,24 @@
+---
+message:
+  validators:
+    required:
+      label: "Message"
+      message: VALIDATE.REQUIRED
+    length:
+      label: "Message"
+      min: 1
+      max: 255
+      message: VALIDATE.LENGTH_RANGE
+  transformations:
+  - trim
+driver:
+  validators:
+  label: "driver"
+  transformations:
+  - trim
+userId:
+  validators:
+  label: "userId"
+interactive:
+  validators:
+  label: "interactive"
