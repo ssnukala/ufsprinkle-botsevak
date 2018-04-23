@@ -84,7 +84,7 @@ class BotSevakController extends SimpleController
 
         Debug::debug("Line 134 Calling the response the data is ", $data);
 
-        $this->botSevakResponses();
+        $this->botSevakResponses($data);
 //        return $response->withJson($result, 200, JSON_PRETTY_PRINT);
     }
 
