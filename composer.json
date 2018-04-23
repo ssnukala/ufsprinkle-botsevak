@@ -1,7 +1,7 @@
 {
     "name": "ssnukala/ufsprinkle-botsevak",
     "type": "userfrosting-sprinkle",
-    "description": "BotMan Sprinkle module for UserFrosting.",
+    "description": "Bot Sprinkle module for UserFrosting.",
     "keywords": ["php user management", "usercake", "bootstrap","botman"],
     "homepage": "https://github.com/ssnukala/ufsprinkle-botsevak",
     "license" : "MIT",
